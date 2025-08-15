@@ -3,12 +3,14 @@ import { Search, ShoppingCart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useCartStore } from "@/lib/cart-store";
+import { Link, useLocation } from "wouter";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { toggleCart, getTotalItems } = useCartStore();
   const totalItems = getTotalItems();
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,34 +52,34 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+              <Link 
+                href="/"
+                className={`transition-colors duration-200 font-medium ${location === '/' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                 data-testid="nav-home"
               >
                 Home
-              </button>
-              <button 
-                onClick={() => scrollToSection("products")}
-                className="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+              </Link>
+              <Link 
+                href="/shop"
+                className={`transition-colors duration-200 font-medium ${location === '/shop' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                 data-testid="nav-shop"
               >
                 Shop
-              </button>
-              <button 
-                onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+              </Link>
+              <Link 
+                href="/about"
+                className={`transition-colors duration-200 font-medium ${location === '/about' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                 data-testid="nav-about"
               >
                 About
-              </button>
-              <button 
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+              </Link>
+              <Link 
+                href="/contact"
+                className={`transition-colors duration-200 font-medium ${location === '/contact' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                 data-testid="nav-contact"
               >
                 Contact
-              </button>
+              </Link>
             </nav>
 
             {/* Search and Cart */}
@@ -126,34 +128,41 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-80">
                   <nav className="flex flex-col space-y-6 mt-8">
-                    <button 
-                      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                      className="text-left text-lg text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+                    <Link 
+                      href="/"
+                      className={`text-left text-lg transition-colors duration-200 font-medium ${location === '/' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                       data-testid="mobile-nav-home"
                     >
                       Home
-                    </button>
-                    <button 
-                      onClick={() => scrollToSection("products")}
-                      className="text-left text-lg text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+                    </Link>
+                    <Link 
+                      href="/shop"
+                      className={`text-left text-lg transition-colors duration-200 font-medium ${location === '/shop' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                       data-testid="mobile-nav-shop"
                     >
                       Shop
-                    </button>
-                    <button 
-                      onClick={() => scrollToSection("about")}
-                      className="text-left text-lg text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+                    </Link>
+                    <Link 
+                      href="/about"
+                      className={`text-left text-lg transition-colors duration-200 font-medium ${location === '/about' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                       data-testid="mobile-nav-about"
                     >
                       About
-                    </button>
-                    <button 
-                      onClick={() => scrollToSection("contact")}
-                      className="text-left text-lg text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium"
+                    </Link>
+                    <Link 
+                      href="/contact"
+                      className={`text-left text-lg transition-colors duration-200 font-medium ${location === '/contact' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
                       data-testid="mobile-nav-contact"
                     >
                       Contact
-                    </button>
+                    </Link>
+                    <Link 
+                      href="/faq"
+                      className={`text-left text-lg transition-colors duration-200 font-medium ${location === '/faq' ? 'text-emerald-primary' : 'text-gray-700 hover:text-emerald-primary'}`} 
+                      data-testid="mobile-nav-faq"
+                    >
+                      FAQ
+                    </Link>
                   </nav>
                 </SheetContent>
               </Sheet>

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -57,55 +58,67 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-gold-accent mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <button 
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                <Link 
+                  href="/"
                   className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
                   data-testid="footer-link-home"
                 >
                   Home
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection("products")}
+                <Link 
+                  href="/shop"
                   className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
                   data-testid="footer-link-shop"
                 >
                   Shop
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection("about")}
+                <Link 
+                  href="/about"
                   className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
                   data-testid="footer-link-about"
                 >
                   About Us
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection("contact")}
+                <Link 
+                  href="/contact"
                   className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
                   data-testid="footer-link-contact"
                 >
                   Contact
-                </button>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+                <Link 
+                  href="/faq"
+                  className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                  data-testid="footer-link-faq"
+                >
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+                <Link 
+                  href="/shipping"
+                  className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                  data-testid="footer-link-shipping"
+                >
                   Shipping Info
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+                <Link 
+                  href="/returns"
+                  className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                  data-testid="footer-link-returns"
+                >
                   Returns
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -144,15 +157,27 @@ export default function Footer() {
               Copyright © 2025 Noor-e-Hunar. All Rights Reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+              <Link 
+                href="/privacy"
+                className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                data-testid="footer-link-privacy"
+              >
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+              </Link>
+              <Link 
+                href="/terms"
+                className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                data-testid="footer-link-terms"
+              >
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-300 hover:text-gold-accent transition-colors duration-200">
+              </Link>
+              <Link 
+                href="/cookies"
+                className="text-gray-300 hover:text-gold-accent transition-colors duration-200"
+                data-testid="footer-link-cookies"
+              >
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
