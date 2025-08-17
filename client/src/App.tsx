@@ -1,3 +1,5 @@
+// client/src/App.tsx
+
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -15,11 +17,23 @@ import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Cookies from "@/pages/cookies";
 
+// Import the new pages
+import { ProductDetailPage } from "@/pages/product-detail";
+import { CheckoutPage } from "@/pages/checkout";
+import { PaymentSuccessPage } from "@/pages/payment-success";
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/shop" component={Shop} />
+
+      {/* Add the route for a single product. The :productId is a dynamic parameter. */}
+      <Route path="/product/:productId" component={ProductDetailPage} />
+
+      {/* Add the route for the checkout page */}
+      <Route path="/checkout" component={CheckoutPage} />
+
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/faq" component={FAQ} />
@@ -28,6 +42,8 @@ function Router() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/cookies" component={Cookies} />
+      <Route path="/checkout" component={CheckoutPage} />
+      <Route path="/payment-success" component={PaymentSuccessPage} /> 
       <Route component={NotFound} />
     </Switch>
   );

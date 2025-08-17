@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertCartItemSchema, insertNewsletterSchema } from "@shared/schema";
 import { z } from "zod";
+import { v4 as uuidv4 } from "uuid"; // Import uuid to generate unique IDs
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Products routes
@@ -153,6 +154,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to subscribe to newsletter" });
     }
   });
+
+  // --- NEW: Payment Gateway Route ---
+  app.post("/api/create-payment-session", async (req, res) => {
+    const { paymentMethod, cart, totalAmount } = req.body;
+
+    // Basic validation
+    if (!paymentMethod || !cart || !totalAmount) {
+      return res.status(400).json({ message: "Missing required payment information." });
+    }
+
+    console.log("Creating payment session with:", { paymentMethod, totalAmount });
+    
+    // You would save the order to your database here with a 'pending' status.
+    const orderId = uuidv4();
+
+    // --- THIS IS A PLACEHOLDER FOR REAL PAYMENT GATEWAY LOGIC ---
+    try {
+      let redirectUrl = '';
+      
+      // We will create a fake success page for now to test the flow
+      // The CLIENT_URL should be in your .env file (e.g., http://localhost:5000)
+      const successUrl = `${process.env.CLIENT_URL}/payment-success?orderId=${orderId}`;
+
+      if (paymentMethod === 'jazzcash') {
+        console.log(`Simulating Jazzcash payment for order ${orderId}`);
+        redirectUrl = successUrl;
+      } else if (paymentMethod === 'easypaisa') {
+        console.log(`Simulating Easypaisa payment for order ${orderId}`);
+        redirectUrl = successUrl;
+      } else {
+        return res.status(400).json({ message: "Invalid payment method" });
+      }
+
+      // Send the redirect URL back to the frontend
+      res.status(200).json({ redirectUrl });
+
+    } catch (error) {
+      console.error("Payment session creation failed:", error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  });
+
 
   const httpServer = createServer(app);
   return httpServer;

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor-e-Hunar - Premium Islamic Art & Crafts | Handcrafted Frames, Dua Cards & More</title>
+    <meta name="description" content="Discover premium Islamic art collection at Noor-e-Hunar. Shop handcrafted paintings, decorative frames, dua cards, bookmarks, and unique Islamic designs with worldwide shipping.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emerald-primary': '#064E3B',
+                        'gold-accent': '#FFD700',
+                        'off-white': '#FAF9F6',
+                        'emerald-light': '#10B981',
+                        'emerald-dark': '#022C2B'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
+                        'slideIn': 'slideIn 0.6s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(255, 215, 0, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-inter bg-off-white text-gray-800 overflow-x-hidden">
+
+    <!-- @COMPONENT: StickyHeader -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <div class="font-playfair text-2xl lg:text-3xl font-bold text-emerald-primary">
+                        نور الہنر
+                        <span class="block text-sm font-inter font-medium text-gold-accent -mt-1">Noor-e-Hunar</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium">Shop</a>
+                    <a href="#about" class="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-emerald-primary transition-colors duration-200 font-medium">Contact</a>
+                </nav>
+
+                <!-- Search and Cart -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-600 hover:text-emerald-primary transition-colors duration-200" data-event="click:toggleSearch">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <div class="relative group">
+                        <button class="p-2 text-gray-600 hover:text-emerald-primary transition-colors duration-200" data-event="click:toggleCart">
+                            <i class="fas fa-shopping-cart text-lg"></i>
+                            <span class="absolute -top-1 -right-1 bg-gold-accent text-emerald-primary text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold" data-bind="cartItemCount">3</span>
+                        </button>
+                        <!-- Cart Preview (Hidden by default, shown on hover) -->
+                        <!-- @FUNCTIONALITY: Cart preview should show on hover/click with animation -->
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 text-gray-600 hover:text-emerald-primary" data-event="click:toggleMobileMenu">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Bar (Hidden by default) -->
+            <div id="search-bar" class="hidden bg-white border-t border-gray-200 py-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search for Islamic art, frames, dua cards..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-primary" data-event="input:handleSearch">
+                    <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: StickyHeader -->
+
+    <!-- @COMPONENT: HeroSection -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background with Islamic patterns -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-primary via-emerald-dark to-black"></div>
+        <!-- Subtle Islamic geometric pattern overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDJMMjYgMTRIMzguNjQyTDI4LjgyMSAyMkwzMi4xNzkgMzRIMjBMMTEuMTc5IDM0TDE0LjUzNyAyMkwxLjM1OCAxNEgxNEwyMCAyWiIgZmlsbD0iI0ZGRDcwMCIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+')"></div>
+        
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="animate-fadeInUp">
+                <h1 class="font-playfair text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6">
+                    Discover Islamic <span class="text-gold-accent">Elegance</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Handcrafted Frames, Books, Dua Cards & More
+                </p>
+                <button class="bg-gold-accent text-emerald-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:animate-glow transition-all duration-300 transform hover:scale-105" data-event="click:scrollToProducts">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Decorative Islamic frame elements -->
+        <div class="absolute top-10 left-10 w-20 h-20 border-2 border-gold-accent opacity-20 rotate-45"></div>
+        <div class="absolute bottom-10 right-10 w-16 h-16 border-2 border-gold-accent opacity-20 rotate-12"></div>
+        <div class="absolute top-1/2 left-4 w-12 h-12 border border-gold-accent opacity-15 rounded-full"></div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: ProductGrid -->
+    <section id="products" class="py-16 lg:py-24 bg-off-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl lg:text-5xl font-bold text-emerald-primary mb-4">Our Collection</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover handcrafted Islamic art pieces that bring spiritual beauty to your space</p>
+            </div>
+
+            <!-- Product Masonry Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8" data-mock="true">
+                <!-- @MAP: products.map(product => ( -->
+                
+                <!-- Product Card 1 - Islamic Calligraphy Painting -->
+                <!-- Elegant Islamic calligraphy artwork with gold accents -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Islamic Calligraphy Painting" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Ayat al-Kursi Calligraphy</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">Handcrafted Arabic calligraphy with gold leaf details</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$89</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - Decorative Islamic Frame -->
+                <!-- Ornate wooden frame with geometric Islamic patterns -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Decorative Islamic Frame" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Geometric Pattern Frame</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">Handcarved wooden frame with traditional motifs</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$124</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - Dua Cards Set -->
+                <!-- Beautiful set of dua cards with gold foil printing -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Islamic Dua Cards Set" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Daily Duas Card Set</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">50 beautiful cards with essential Islamic prayers</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$34</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 - Islamic Bookmark -->
+                <!-- Elegant metal bookmark with Islamic calligraphy -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Islamic Calligraphy Bookmark" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Gold Calligraphy Bookmark</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">Premium metal bookmark with Quranic verse</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$18</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 - Dua Jar -->
+                <!-- Glass jar filled with rolled paper duas -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Islamic Dua Jar" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Gratitude Dua Jar</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">Handmade jar with 100 gratitude duas</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$42</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 - Islamic Wall Art -->
+                <!-- Modern Islamic geometric wall art piece -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <img src="https://pixabay.com/get/gc94aad971dc1e9d20d21846bcb6cb1291ac804daf8b9adb6c5588719d515c5c1495023c37611b2964f8d726a8cdf0b7bd965a2cd7ddb2b2c6754bfe7421f7ad0_1280.jpg" alt="Islamic Geometric Wall Art" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" data-mock-image="true">
+                        <div class="absolute inset-0 bg-emerald-primary/0 group-hover:bg-emerald-primary/20 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2" data-bind="product.name">Modern Islamic Wall Art</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="product.description">Contemporary geometric design with Islamic motifs</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-gold-accent" data-bind="product.price">$156</span>
+                            <div class="flex space-x-2">
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200" data-event="click:addToCart">
+                                    <i class="fas fa-cart-plus mr-2"></i>Add
+                                </button>
+                                <button class="border border-emerald-primary text-emerald-primary px-4 py-2 rounded-lg hover:bg-emerald-primary hover:text-white transition-colors duration-200" data-event="click:viewDetails">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- @END_MAP )) -->
+            </div>
+
+            <!-- Load More Button (Infinite Scroll Implementation) -->
+            <div class="text-center mt-12">
+                <button id="load-more" class="bg-emerald-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-emerald-dark transition-colors duration-200" data-event="click:loadMoreProducts">
+                    <i class="fas fa-spinner mr-2 hidden"></i>
+                    Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProductGrid -->
+
+    <!-- @COMPONENT: IslamicQuoteSection -->
+    <section class="py-16 lg:py-24 bg-gradient-to-r from-emerald-primary to-emerald-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <!-- Decorative Islamic pattern background -->
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Arabic Calligraphy -->
+            <div class="font-playfair text-4xl lg:text-6xl text-gold-accent mb-8 leading-relaxed">
+                وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+            </div>
+            <!-- Translation -->
+            <p class="text-xl lg:text-2xl text-white mb-4 font-light">
+                "And whoever relies upon Allah - then He is sufficient for him."
+            </p>
+            <p class="text-gold-accent font-medium">
+                - Quran 65:3
+            </p>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: IslamicQuoteSection -->
+
+    <!-- @COMPONENT: WhyShopWithUs -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-emerald-primary mb-4">Why Shop With Us</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Experience the difference of authentic Islamic craftsmanship</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-primary to-emerald-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hand-holding-heart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2">Handmade Quality</h3>
+                    <p class="text-gray-600">Each piece is carefully crafted by skilled artisans with attention to detail</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-primary to-emerald-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-globe text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2">Worldwide Shipping</h3>
+                    <p class="text-gray-600">We deliver our beautiful Islamic art pieces to your doorstep globally</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-primary to-emerald-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-star-and-crescent text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2">Unique Islamic Designs</h3>
+                    <p class="text-gray-600">Original designs that blend traditional Islamic art with contemporary aesthetics</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-primary to-emerald-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold text-emerald-primary mb-2">Secure Payment</h3>
+                    <p class="text-gray-600">Shop with confidence using our encrypted and secure payment system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: WhyShopWithUs -->
+
+    <!-- @COMPONENT: TestimonialsSection -->
+    <section class="py-16 lg:py-24 bg-off-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-emerald-primary mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover why thousands trust Noor-e-Hunar for their Islamic art needs</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-mock="true">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Customer profile image from diverse backgrounds -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Customer testimonial" class="w-12 h-12 rounded-full mr-4" data-mock-image="true">
+                        <div>
+                            <h4 class="font-semibold text-emerald-primary" data-bind="testimonial.name">Amina Hassan</h4>
+                            <div class="flex text-gold-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600" data-bind="testimonial.text">"The calligraphy piece I ordered exceeded my expectations. The quality is outstanding and it adds such beauty to my prayer room. Highly recommended!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Customer profile image showcasing diversity -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Customer testimonial" class="w-12 h-12 rounded-full mr-4" data-mock-image="true">
+                        <div>
+                            <h4 class="font-semibold text-emerald-primary" data-bind="testimonial.name">Omar Ali</h4>
+                            <div class="flex text-gold-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600" data-bind="testimonial.text">"Fast shipping and beautiful packaging. The dua cards are perfectly crafted and my family loves them. Will definitely order again!"</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Customer profile image representing global customer base -->
+                        <img src="https://pixabay.com/get/g717c2289b73678025fd7b03526c3f774e33f7d1519c8077374898b3bc5001289111ca88f335ffb139aca55e9244d603132c099a9a442ad5da92f48e43a901a91_1280.jpg" alt="Customer testimonial" class="w-12 h-12 rounded-full mr-4" data-mock-image="true">
+                        <div>
+                            <h4 class="font-semibold text-emerald-primary" data-bind="testimonial.name">Fatima Khan</h4>
+                            <div class="flex text-gold-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600" data-bind="testimonial.text">"Absolutely gorgeous Islamic art! The attention to detail is amazing. I've received so many compliments on the frame I purchased."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: TestimonialsSection -->
+
+    <!-- @COMPONENT: BestsellersCarousel -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-emerald-primary mb-4">Bestsellers</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Our most loved Islamic art pieces chosen by our community</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative overflow-hidden">
+                <div class="flex space-x-6 transition-transform duration-500" id="bestsellers-carousel" data-mock="true">
+                    <!-- @MAP: bestsellers.map(product => ( -->
+                    
+                    <!-- Bestseller 1 -->
+                    <!-- Premium Islamic calligraphy with 99 names of Allah -->
+                    <div class="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="99 Names of Allah Calligraphy" class="w-full h-48 object-cover">
+                            <div class="absolute top-4 right-4 bg-gold-accent text-emerald-primary px-3 py-1 rounded-full text-sm font-bold">
+                                #1 Best Seller
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-playfair text-lg font-semibold text-emerald-primary mb-2">99 Names of Allah</h3>
+                            <p class="text-gray-600 text-sm mb-4">Complete set with beautiful Arabic calligraphy</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-gold-accent">$199</span>
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller 2 -->
+                    <!-- Elegant Mashallah wall decor -->
+                    <div class="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Mashallah Wall Decor" class="w-full h-48 object-cover">
+                            <div class="absolute top-4 right-4 bg-gold-accent text-emerald-primary px-3 py-1 rounded-full text-sm font-bold">
+                                #2 Best Seller
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-playfair text-lg font-semibold text-emerald-primary mb-2">Mashallah Wall Decor</h3>
+                            <p class="text-gray-600 text-sm mb-4">Modern Islamic wall art with gold finish</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-gold-accent">$78</span>
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bestseller 3 -->
+                    <!-- Premium Quran verse frame -->
+                    <div class="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Quran Verse Frame" class="w-full h-48 object-cover">
+                            <div class="absolute top-4 right-4 bg-gold-accent text-emerald-primary px-3 py-1 rounded-full text-sm font-bold">
+                                #3 Best Seller
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-playfair text-lg font-semibold text-emerald-primary mb-2">Surah Al-Fatiha Frame</h3>
+                            <p class="text-gray-600 text-sm mb-4">Handcrafted frame with golden accents</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-gold-accent">$145</span>
+                                <button class="bg-emerald-primary text-white px-4 py-2 rounded-lg hover:bg-emerald-dark transition-colors duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+
+                <!-- Carousel Navigation -->
+                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-emerald-primary p-3 rounded-full shadow-lg transition-all duration-200" data-event="click:carouselPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-emerald-primary p-3 rounded-full shadow-lg transition-all duration-200" data-event="click:carouselNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: BestsellersCarousel -->
+
+    <!-- @COMPONENT: NewsletterSignup -->
+    <section class="py-16 lg:py-24 bg-gradient-to-r from-gold-accent via-yellow-400 to-gold-accent relative overflow-hidden">
+        <!-- Islamic Geometric Pattern Overlay -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQwIDRMMTIgNDBMNDAgNzZMNjggNDBMNDAgNFoiIHN0cm9rZT0iIzA2NEUzQiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg=='); background-size: 80px 80px;"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
+                <h2 class="font-playfair text-3xl lg:text-5xl font-bold text-emerald-primary mb-4">
+                    Join Our Noor-e-Hunar Family
+                </h2>
+                <p class="text-xl text-emerald-dark mb-8 max-w-2xl mx-auto">
+                    Get exclusive discounts, updates, and Islamic art inspiration in your inbox
+                </p>
+                
+                <div class="max-w-md mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email address" 
+                            class="flex-1 px-6 py-4 rounded-full border-2 border-emerald-primary focus:outline-none focus:border-emerald-dark transition-colors duration-200"
+                            data-event="input:validateEmail"
+                        >
+                        <button class="bg-emerald-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-emerald-dark hover:animate-glow transition-all duration-300 transform hover:scale-105" data-event="click:subscribeNewsletter">
+                            Subscribe Now
+                        </button>
+                    </div>
+                    <p class="text-sm text-emerald-dark mt-4 opacity-80">
+                        🔒 We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+
+                <!-- Newsletter Benefits -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-emerald-dark">
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-percent text-2xl"></i>
+                        <span class="font-medium">Exclusive Discounts</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-palette text-2xl"></i>
+                        <span class="font-medium">Art Inspiration</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-bell text-2xl"></i>
+                        <span class="font-medium">New Arrivals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: NewsletterSignup -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer id="contact" class="bg-emerald-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- About Section -->
+                <div>
+                    <div class="font-playfair text-2xl font-bold text-gold-accent mb-4">
+                        نور الہنر
+                        <span class="block text-lg font-inter font-medium text-white -mt-1">Noor-e-Hunar</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Bringing the beauty of Islamic art to your home. We specialize in handcrafted frames, calligraphy, dua cards, and unique Islamic designs that inspire faith and devotion.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gold-accent text-emerald-primary rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors duration-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold-accent text-emerald-primary rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors duration-200">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold-accent text-emerald-primary rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors duration-200">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold-accent text-emerald-primary rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors duration-200">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gold-accent mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Home</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Shop</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gold-accent mb-6">Get in Touch</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-gold-accent"></i>
+                            <span class="text-gray-300">info@noor-e-hunar.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-gold-accent"></i>
+                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-gold-accent mt-1"></i>
+                            <span class="text-gray-300">123 Islamic Art Street<br>Creative District, NY 10001</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-gold-accent"></i>
+                            <span class="text-gray-300">Mon-Fri: 9AM-6PM EST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-emerald-light pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 mb-4 md:mb-0">
+                        Copyright © 2025 Noor-e-Hunar. All Rights Reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Privacy Policy</a>
+                        <a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Terms of Service</a>
+                        <a href="#" class="text-gray-300 hover:text-gold-accent transition-colors duration-200">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @STATE: searchOpen:boolean = false -->
+    <!-- @STATE: mobileMenuOpen:boolean = false -->
+    <!-- @STATE: cartOpen:boolean = false -->
+    <!-- @STATE: productsLoaded:number = 6 -->
+    <!-- @STATE: currentCarouselIndex:number = 0 -->
+
+    <script>
+        // TODO: Implement proper state management, API calls, and business logic
+        (function() {
+            // Header scroll effect
+            let lastScrollTop = 0;
+            const header = document.getElementById('main-header');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-10px)';
+                    header.classList.add('bg-white/98');
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                    if (scrollTop <= 50) {
+                        header.classList.remove('bg-white/98');
+                    }
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Search toggle functionality
+            function toggleSearch() {
+                const searchBar = document.getElementById('search-bar');
+                if (searchBar) {
+                    searchBar.classList.toggle('hidden');
+                    if (!searchBar.classList.contains('hidden')) {
+                        searchBar.querySelector('input').focus();
+                    }
+                }
+            }
+
+            // Infinite scroll simulation
+            let isLoading = false;
+            const loadMoreBtn = document.getElementById('load-more');
+            
+            function loadMoreProducts() {
+                if (isLoading) return;
+                
+                isLoading = true;
+                const spinner = loadMoreBtn.querySelector('.fas');
+                const btnText = loadMoreBtn.querySelector('.button-text') || loadMoreBtn;
+                
+                spinner.classList.remove('hidden');
+                btnText.textContent = 'Loading...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // TODO: Implement actual product loading from API
+                    console.log('Loading more products...');
+                    
+                    spinner.classList.add('hidden');
+                    btnText.textContent = 'Load More Products';
+                    isLoading = false;
+                }, 1500);
+            }
+
+            // Newsletter subscription
+            function subscribeNewsletter() {
+                const emailInput = document.querySelector('input[type="email"]');
+                const email = emailInput?.value;
+                
+                if (email && isValidEmail(email)) {
+                    // TODO: Implement newsletter subscription API call
+                    console.log('Subscribing email:', email);
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            // Event listeners
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', loadMoreProducts);
+            }
+
+            // Add event listeners for interactive elements
+            document.addEventListener('click', function(e) {
+                // Handle search toggle
+                if (e.target.closest('[data-event*="toggleSearch"]')) {
+                    toggleSearch();
+                }
+                
+                // Handle newsletter subscription
+                if (e.target.closest('[data-event*="subscribeNewsletter"]')) {
+                    subscribeNewsletter();
+                }
+                
+                // Handle add to cart
+                if (e.target.closest('[data-event*="addToCart"]')) {
+                    // TODO: Implement add to cart functionality
+                    console.log('Adding to cart...');
+                    alert('Product added to cart!');
+                }
+                
+                // Handle view details
+                if (e.target.closest('[data-event*="viewDetails"]')) {
+                    // TODO: Implement product detail view
+                    console.log('Viewing product details...');
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animations
+            document.querySelectorAll('.group, .bg-white').forEach(el => {
+                observer.observe(el);
+            });
+
+        })();
+    </script>
+</body>
+</html>
