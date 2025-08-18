@@ -1,7 +1,7 @@
 // server/storage.ts
 
 import { drizzle } from 'drizzle-orm/vercel-postgres';
-import { createPool } from '@vercel/postgres';
+import { createPool, VercelPool } from '@vercel/postgres';
 import { products, cartItems, newsletters, type InsertProduct, type InsertCartItem, type InsertNewsletter, type Product, type CartItem, type Newsletter, type CartItemWithProduct } from "../shared/schema";
 import { eq, and, ilike, desc } from 'drizzle-orm';
 
@@ -25,11 +25,15 @@ export interface IStorage {
 
 class DBStorage implements IStorage {
   private db;
+  private pool: VercelPool;
 
   constructor() {
-    this.db = drizzle(createPool(), { schema: { products, cartItems, newsletters } });
+    // FIX: Initialize the pool inside the constructor to ensure env vars are loaded.
+    this.pool = createPool(); 
+    this.db = drizzle(this.pool, { schema: { products, cartItems, newsletters } });
   }
 
+  // ... (all the other methods remain exactly the same)
   async getProducts(limit = 20, offset = 0, category?: string, search?: string) {
     const conditions = [];
     if (category) conditions.push(eq(products.category, category));
