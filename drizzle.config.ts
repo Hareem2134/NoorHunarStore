@@ -1,14 +1,19 @@
+// drizzle.config.ts
 import { defineConfig } from "drizzle-kit";
+import * as dotenv from "dotenv";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL, ensure the database is provisioned");
+// Load environment variables from .env file
+dotenv.config({ path: '.env' });
+
+if (!process.env.POSTGRES_URL) {
+  throw new Error("POSTGRES_URL environment variable is not set in .env file");
 }
 
 export default defineConfig({
-  out: "./migrations",
   schema: "./shared/schema.ts",
-  dialect: "postgresql",
+  out: "./drizzle", // You can use 'migrations' or 'drizzle', both are fine
+  dialect: "postgresql", // This is the correct new syntax
   dbCredentials: {
-    url: process.env.DATABASE_URL,
+    url: process.env.POSTGRES_URL, // This is the correct new syntax
   },
 });
