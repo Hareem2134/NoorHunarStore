@@ -174,14 +174,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let redirectUrl = '';
       
       // We will create a fake success page for now to test the flow
-      // The CLIENT_URL should be in your .env file (e.g., http://localhost:5000)
-      const successUrl = `${process.env.CLIENT_URL}/payment-success?orderId=${orderId}`;
+      const clientUrl = process.env.CLIENT_URL || 'http://localhost:5000';
+      const successUrl = `${clientUrl}/payment-success?orderId=${orderId}`;
 
       if (paymentMethod === 'jazzcash') {
         console.log(`Simulating Jazzcash payment for order ${orderId}`);
+        console.log(`Redirect URL: ${successUrl}`);
         redirectUrl = successUrl;
       } else if (paymentMethod === 'easypaisa') {
         console.log(`Simulating Easypaisa payment for order ${orderId}`);
+        console.log(`Redirect URL: ${successUrl}`);
         redirectUrl = successUrl;
       } else {
         return res.status(400).json({ message: "Invalid payment method" });

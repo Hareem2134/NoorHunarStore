@@ -1,6 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 
-// NEW: Determine the base URL for the API
+// Determine the base URL for the API
 // On the server (SSR) or in production, it uses the Vercel URL.
 // In local development, it uses an empty string (for proxying).
 const getBaseUrl = () => {

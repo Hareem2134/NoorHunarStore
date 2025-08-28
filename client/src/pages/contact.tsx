@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Facebook, Instagram } from "lucide-react";
+import PageTransition from "@/components/page-transition";
+import AnimatedSection from "@/components/animated-section";
+import StaggeredContainer, { StaggeredItem } from "@/components/staggered-container";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -41,26 +44,29 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-off-white">
+    <PageTransition className="min-h-screen bg-off-white">
       <Header />
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-emerald-primary to-emerald-dark">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-playfair text-4xl lg:text-6xl font-bold text-white mb-6">
-              Contact Us
-            </h1>
-            <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </p>
-          </div>
-        </section>
+        <AnimatedSection>
+          <section className="py-16 lg:py-24 bg-gradient-to-br from-emerald-primary to-emerald-dark">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h1 className="font-playfair text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+                Contact Us
+              </h1>
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              </p>
+            </div>
+          </section>
+        </AnimatedSection>
 
-        <section className="py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Information */}
-              <div>
+        <AnimatedSection delay={0.3}>
+          <section className="py-16 lg:py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* Contact Information */}
+                <div>
                 <h2 className="font-playfair text-3xl font-bold text-emerald-primary mb-8">
                   Get in Touch
                 </h2>
@@ -70,9 +76,9 @@ export default function Contact() {
                   Reach out to us through any of the channels below.
                 </p>
 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4" data-testid="contact-email">
-                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                <StaggeredContainer className="space-y-6">
+                  <StaggeredItem className="flex items-start space-x-4 hover-lift" data-testid="contact-email">
+                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0 animate-float">
                       <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -80,10 +86,10 @@ export default function Contact() {
                       <p className="text-gray-600">info@noor-e-hunar.com</p>
                       <p className="text-gray-600">support@noor-e-hunar.com</p>
                     </div>
-                  </div>
+                  </StaggeredItem>
 
-                  <div className="flex items-start space-x-4" data-testid="contact-phone">
-                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <StaggeredItem className="flex items-start space-x-4 hover-lift" data-testid="contact-phone">
+                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0 animate-float" style={{animationDelay: '0.5s'}}>
                       <Phone className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -91,20 +97,20 @@ export default function Contact() {
                       <p className="text-gray-600">+1 (555) 123-4567</p>
                       <p className="text-gray-600">Mon-Fri: 9AM-6PM EST</p>
                     </div>
-                  </div>
+                  </StaggeredItem>
 
-                  <div className="flex items-start space-x-4" data-testid="contact-address">
-                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <StaggeredItem className="flex items-start space-x-4 hover-lift" data-testid="contact-address">
+                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0 animate-float" style={{animationDelay: '1s'}}>
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-emerald-primary mb-1">Visit Us</h3>
                       <p className="text-gray-600">123 Islamic Art Street<br />Creative District, NY 10001</p>
                     </div>
-                  </div>
+                  </StaggeredItem>
 
-                  <div className="flex items-start space-x-4" data-testid="contact-hours">
-                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <StaggeredItem className="flex items-start space-x-4 hover-lift" data-testid="contact-hours">
+                    <div className="w-12 h-12 bg-emerald-primary rounded-lg flex items-center justify-center flex-shrink-0 animate-float" style={{animationDelay: '1.5s'}}>
                       <Clock className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -113,8 +119,8 @@ export default function Contact() {
                       <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM EST</p>
                       <p className="text-gray-600">Sunday: Closed</p>
                     </div>
-                  </div>
-                </div>
+                  </StaggeredItem>
+                </StaggeredContainer>
 
                 {/* Social Media */}
                 <div className="mt-8">
@@ -146,7 +152,7 @@ export default function Contact() {
               </div>
 
               {/* Contact Form */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover-lift">
                 <h2 className="font-playfair text-3xl font-bold text-emerald-primary mb-6">
                   Send us a Message
                 </h2>
@@ -227,12 +233,13 @@ export default function Contact() {
                   </Button>
                 </form>
               </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
       </div>
       <Footer />
       <CartPreview />
-    </div>
+    </PageTransition>
   );
 }

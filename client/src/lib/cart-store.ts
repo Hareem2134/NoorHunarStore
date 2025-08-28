@@ -1,11 +1,19 @@
 import { create } from 'zustand';
-import { type CartItemWithProduct } from '@shared/schema';
+import { persist } from 'zustand/middleware';
+
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
 
 interface CartState {
-  items: CartItemWithProduct[];
+  items: CartItem[];
   isOpen: boolean;
-  setItems: (items: CartItemWithProduct[]) => void;
-  addItem: (item: CartItemWithProduct) => void;
+  setItems: (items: CartItem[]) => void;
+  addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -14,18 +22,18 @@ interface CartState {
   getTotalPrice: () => number;
 }
 
-export const useCartStore = create<CartState>((set, get) => ({
+export const useCartStore = create<CartState>()(persist((set, get) => ({
   items: [],
   isOpen: false,
   
   setItems: (items) => set({ items }),
   
   addItem: (item) => set((state) => {
-    const existingItem = state.items.find(i => i.productId === item.productId);
+    const existingItem = state.items.find(i => i.id === item.id);
     if (existingItem) {
       return {
         items: state.items.map(i => 
-          i.productId === item.productId 
+          i.id === item.id 
             ? { ...i, quantity: i.quantity + item.quantity }
             : i
         )
@@ -55,6 +63,8 @@ export const useCartStore = create<CartState>((set, get) => ({
   
   getTotalPrice: () => {
     const { items } = get();
-    return items.reduce((total, item) => total + (parseFloat(item.product.price) * item.quantity), 0);
+    return items.reduce((total, item) => total + (item.price * item.quantity), 0);
   },
+}), {
+  name: 'cart-storage',
 }));

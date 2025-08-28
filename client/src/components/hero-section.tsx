@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import StaggeredContainer, { StaggeredItem } from "@/components/staggered-container";
 
 export default function HeroSection() {
   const scrollToProducts = () => {
@@ -23,27 +25,75 @@ export default function HeroSection() {
       ></div>
       
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="animate-fade-in-up">
-          <h1 className="font-playfair text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6">
-            Discover Islamic <span className="text-gold-accent">Elegance</span>
-          </h1>
-          <p className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Handcrafted Frames, Books, Dua Cards & More
-          </p>
-          <Button
-            onClick={scrollToProducts}
-            className="bg-gold-accent text-emerald-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:animate-glow transition-all duration-300 transform hover:scale-105"
-            data-testid="button-shop-now"
-          >
-            Shop Now
-          </Button>
-        </div>
+        <StaggeredContainer>
+          <StaggeredItem>
+            <motion.h1 
+              className="font-playfair text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6"
+              initial={{ opacity: 0, rotateX: -90, scale: 0.5 }}
+              animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+              transition={{ duration: 1, ease: [0.68, -0.55, 0.265, 1.55] }}
+            >
+              <motion.span
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                Discover Islamic
+              </motion.span>{" "}
+              <motion.span 
+                className="text-gold-accent"
+                initial={{ opacity: 0, scale: 0, rotate: 180 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+              >
+                Elegance
+              </motion.span>
+            </motion.h1>
+          </StaggeredItem>
+          <StaggeredItem>
+            <motion.p 
+              className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 50, rotateY: 45 }}
+              animate={{ opacity: 1, y: 0, rotateY: 0 }}
+              transition={{ duration: 0.8, delay: 0.9, ease: [0.175, 0.885, 0.32, 1.275] }}
+            >
+              Handcrafted Frames, Books, Dua Cards & More
+            </motion.p>
+          </StaggeredItem>
+          <StaggeredItem>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.3, rotate: -180 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, delay: 1.2, ease: [0.68, -0.55, 0.265, 1.55] }}
+            >
+              <Button
+                onClick={scrollToProducts}
+                className="bg-gold-accent text-emerald-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:animate-glow transition-all duration-300 transform hover:scale-110 hover:shadow-2xl animate-pulse-slow"
+                data-testid="button-shop-now"
+              >
+                Shop Now
+              </Button>
+            </motion.div>
+          </StaggeredItem>
+        </StaggeredContainer>
       </div>
 
-      {/* Decorative Islamic frame elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 border-2 border-gold-accent opacity-20 rotate-45"></div>
-      <div className="absolute bottom-10 right-10 w-16 h-16 border-2 border-gold-accent opacity-20 rotate-12"></div>
-      <div className="absolute top-1/2 left-4 w-12 h-12 border border-gold-accent opacity-15 rounded-full"></div>
+      {/* Decorative Islamic frame elements with animations */}
+      <motion.div 
+        className="absolute top-10 left-10 w-20 h-20 border-2 border-gold-accent opacity-20"
+        animate={{ rotate: [45, 90, 45] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      ></motion.div>
+      <motion.div 
+        className="absolute bottom-10 right-10 w-16 h-16 border-2 border-gold-accent opacity-20"
+        animate={{ rotate: [12, -12, 12], scale: [1, 1.1, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      ></motion.div>
+      <motion.div 
+        className="absolute top-1/2 left-4 w-12 h-12 border border-gold-accent opacity-15 rounded-full"
+        animate={{ y: [-10, 10, -10], opacity: [0.15, 0.3, 0.15] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      ></motion.div>
     </section>
   );
 }

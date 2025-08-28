@@ -2,12 +2,6 @@ import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Footer() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <footer id="contact" className="bg-emerald-primary text-white py-16">

@@ -1,5 +1,3 @@
-// client/src/pages/payment-success.tsx
-
 import { Link, useLocation } from 'wouter';
 import { CheckCircle } from 'lucide-react';
 import Header from '@/components/header';
@@ -9,7 +7,7 @@ import { useEffect } from 'react';
 
 export function PaymentSuccessPage() {
   const [location] = useLocation();
-  const searchParams = new URLSearchParams(location);
+  const searchParams = new URLSearchParams(window.location.search);
   const orderId = searchParams.get('orderId');
 
   // Clear the cart after a successful order
@@ -29,10 +27,8 @@ export function PaymentSuccessPage() {
           <div className="text-sm text-gray-500 bg-gray-50 p-3 rounded-md">
             <strong>Order ID:</strong> {orderId || 'N/A'}
           </div>
-          <Link href="/shop">
-            <a className="mt-8 inline-block bg-emerald-primary text-white py-2 px-6 rounded-lg hover:bg-emerald-dark transition-colors">
-              Continue Shopping
-            </a>
+          <Link href="/shop" className="mt-8 inline-block bg-emerald-primary text-white py-2 px-6 rounded-lg hover:bg-emerald-dark transition-colors">
+            Continue Shopping
           </Link>
         </div>
       </main>
